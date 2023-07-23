@@ -1,6 +1,14 @@
 # Bag_of_Marbles_Sort-
 Worlds Fastest Sort Algorithm (A statistical sort)
 
+Couple bugs remain.  Let me know what good uses you find for this!
+
+Please commit your code to the repo for enhancements and speed up. 
+
+This is just a prototype  (proof of concept) 
+
+I bet experts out there could speed it up 1000x faster.
+
 
 
 Title: A Novel Hybrid Sorting Method Utilizing Random Sampling and Radix Sorting
