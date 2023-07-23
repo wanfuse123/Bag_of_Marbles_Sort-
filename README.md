@@ -240,6 +240,64 @@ To validate the efficacy of the Random Subset Radix Sort (RSRS) algorithm, a ser
 
 The datasets utilized in the tests were composed of integers, exhibiting high levels of repeated values. While real numbers were not specifically used in this case, further enhancements of the RSRS algorithm could potentially incorporate more sophisticated statistical techniques, such as bucketing, to deal with real number data, by creating categories that hold a range of values.
 
+
+There are various statistical methods to select typical values in a distribution, which are often referred to as measures of central tendency. The three most common measures of central tendency are:
+
+Mean: This is the average value of the dataset, which is calculated by adding all the data points in the dataset and dividing by the number of data points.
+
+Median: This is the middle value in a dataset. If the dataset is odd, the median is the middle value. If it's even, the median is the average of the two middle values.
+
+Mode: This is the value that appears most frequently in a dataset. A dataset may have one mode, more than one mode, or no mode at all.
+
+In addition to these, there are other robust statistical measures used to select typical values or represent the 'center' of a distribution. These include:
+
+Trimmed Mean: This is similar to the mean, but it involves removing a certain percentage of the smallest and largest values before calculating the mean.
+
+Winsorized Mean: This is similar to the trimmed mean, but instead of removing the extreme values, they are replaced by certain percentiles (for example, the 5th and 95th percentile).
+
+Geometric Mean: This is the nth root of the product of all n numbers in the dataset, often used when dealing with data in different units of measurement.
+
+Harmonic Mean: This is the reciprocal of the arithmetic mean of the reciprocals, often used when dealing with rates.
+
+Midrange: This is the average of the maximum and minimum values in the dataset.
+
+Each of these measures is suitable in different situations and for different types of distributions, and some are more resistant to outliers than others. For example, the mean is heavily influenced by outliers, while the median is not. It's important to understand the nature of your data and your specific needs when selecting a measure of central tendency.
+
+How about for determining the likelyhood of an item being in the set for outliers
+ChatGPT
+In statistics, outliers are data points that significantly differ from other observations. Identifying outliers is important as they can provide critical information or can distort the representation of data. The most common statistical methods for determining the likelihood of an item being an outlier are as follows:
+
+Z-Score: Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. A Z-score of 0 indicates that the data point's score is identical to the mean score. A data point can be considered an outlier if the Z-score is too high or too low, often if it's above 3 or below -3.
+
+IQR Method: The Interquartile Range (IQR) method is often used to detect outliers. The IQR is the range between the first quartile (25th percentile) and the third quartile (75th percentile). Any data point that falls below the first quartile minus the IQR or above the third quartile plus the IQR is considered an outlier.
+
+Modified Z-Score Method: An adaptation of the Z-score method that uses the median and median absolute deviation instead of the mean and standard deviation. It is more robust to outliers than the Z-score method.
+
+Grubbs' Test (Extreme Studentized Deviate): This is a statistical test used to detect one outlier at a time in a univariate data set that follows an approximately normal distribution.
+
+Mahalanobis distance: This method calculates the distance of each data point from the mean and identifies it as an outlier if it exceeds a certain value.
+
+Chi-square test: This can be used to detect outliers in datasets where the variable under consideration is supposed to follow a frequency distribution.
+
+It's crucial to remember that these techniques don't definitively identify outliers. They only suggest that a particular value could be an outlier, requiring further investigation. Also, certain datasets or contexts may make certain techniques more appropriate than others.
+
+In the context of artificial intelligence (AI), several methods are employed to detect outliers, often using machine learning (ML) algorithms. These methods are used in anomaly detection, fraud detection, system health monitoring, and more. Here are some of them:
+
+Clustering Algorithms: These algorithms, like K-means and DBSCAN (Density-Based Spatial Clustering of Applications with Noise), group similar data together. Data points that don't fit into any cluster or those far away from all clusters are considered outliers.
+
+Isolation Forest: This algorithm isolates observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. The logic is that isolating outlier observations is easier because only a few conditions are needed to separate cases that are drastically different from the rest.
+
+Local Outlier Factor (LOF): The LOF algorithm computes the local density deviation of a given data point with respect to its neighbors. It considers as outliers the samples that have a substantially lower density than their neighbors.
+
+One-class SVM: This method, primarily used for anomaly detection, works by fitting a boundary around the normal data, and data points outside of this boundary are considered outliers.
+
+Autoencoders (Neural Networks): These are a type of neural network used for learning efficient codings of input data. They work by training the network to ignore noise. With this method, the reconstruction error is used to detect outliers – instances that deviate from the norm will have higher reconstruction error.
+
+Generative Adversarial Networks (GANs): GANs are able to model the probability of the input data. The discriminator in a GAN is often used to detect outliers.
+
+These methods can be more sophisticated and efficient in finding outliers, especially in large datasets or high-dimensional data. However, they require more computational resources and expertise to implement than traditional statistical methods.
+
+
 Here are the results from three different test cases:
 
 Test Case 1:
