@@ -1,0 +1,75 @@
+ ./bag_of_marbles_sort.py
+Sorting Algorithm: radix_sort
+-------------------------
+Subset Size: 2000000
+  Full Set Size: 3000000
+  Subset Size: 2000000
+  Number of Unique Elements: 7611
+  Subset Sort Time: 1.8552441596984863
+  Full Set Sort Time: 304.93356466293335
+  Recreated Match Count: 2999726
+
+Sorting Algorithm: radix_sort
+-------------------------
+Subset Size: 200000
+  Full Set Size: 3000000
+  Subset Size: 200000
+  Number of Unique Elements: 6237
+  Subset Sort Time: 0.14116120338439941
+  Full Set Sort Time: 38.08440446853638
+  Recreated Match Count: 2990453
+
+Sorting Algorithm: radix_sort
+-------------------------
+Subset Size: 100000
+  Full Set Size: 3000000
+  Subset Size: 100000
+  Number of Unique Elements: 5792
+  Subset Sort Time: 0.04767727851867676
+  Full Set Sort Time: 20.642804384231567
+  Recreated Match Count: 2979887
+
+Sorting Algorithm: radix_sort
+-------------------------
+Subset Size: 25000
+  Full Set Size: 3000000
+  Subset Size: 25000
+  Number of Unique Elements: 4681
+  Subset Sort Time: 0.011971712112426758
+  Full Set Sort Time: 6.467743158340454
+  Recreated Match Count: 2892522
+
+================================================================================
+Summary of Results
+-----------------
+  Sorting Algorithm: radix_sort
+  Subset Size: 2000000
+  Full Set Size: 3000000
+  Number of Unique Elements: 7611
+  Subset Sort Time: 1.8552441596984863
+  Full Set Sort Time: 304.93356466293335
+  Recreated Match Count: 2999726
+
+  Sorting Algorithm: radix_sort
+  Subset Size: 200000
+  Full Set Size: 3000000
+  Number of Unique Elements: 6237
+  Subset Sort Time: 0.14116120338439941
+  Full Set Sort Time: 38.08440446853638
+  Recreated Match Count: 2990453
+
+  Sorting Algorithm: radix_sort
+  Subset Size: 100000
+  Full Set Size: 3000000
+  Number of Unique Elements: 5792
+  Subset Sort Time: 0.04767727851867676
+  Full Set Sort Time: 20.642804384231567
+  Recreated Match Count: 2979887
+
+  Sorting Algorithm: radix_sort
+  Subset Size: 25000
+  Full Set Size: 3000000
+  Number of Unique Elements: 4681
+  Subset Sort Time: 0.011971712112426758
+  Full Set Sort Time: 6.467743158340454
+  Recreated Match Count: 2892522
