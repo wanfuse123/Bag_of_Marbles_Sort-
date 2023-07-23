@@ -1,0 +1,187 @@
+import numpy as np
+import random
+from time import time
+import sortedcontainers
+
+# Define the sorting algorithms
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[random.randint(0, len(arr) - 1)]
+    smaller = [x for x in arr if x < pivot]
+    equal = [x for x in arr if x == pivot]
+    greater = [x for x in arr if x > pivot]
+    return quick_sort(smaller) + equal + quick_sort(greater)
+
+def heapify(arr, n, i):
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+    if left < n and arr[i] < arr[left]:
+        largest = left
+    if right < n and arr[largest] < arr[right]:
+        largest = right
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+def heap_sort(arr):
+    n = len(arr)
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]
+        heapify(arr, i, 0)
+    return arr
+
+def shell_sort(arr):
+    n = len(arr)
+    gap = n // 2
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            arr[j] = temp
+        gap //= 2
+    return arr
+
+def counting_sort(arr):
+    max_value = max(arr)
+    counts = [0] * (max_value + 1)
+    for num in arr:
+        counts[num] += 1
+    sorted_arr = []
+    for i in range(len(counts)):
+        sorted_arr.extend([i] * counts[i])
+    return sorted_arr
+
+def generate_shuffled_subset_indices(dataset_size, subset_size):
+    indices = np.arange(dataset_size)
+    np.random.shuffle(indices)
+    return indices[:subset_size]
+
+# Generate random dataset
+dataset_size = 1000
+dataset = random.sample(range(dataset_size), dataset_size)
+
+# Define the sorting algorithms
+algorithms = [
+    np.sort,                      # NumPy Sort
+    sorted,                       # Python Sorted
+    sortedcontainers.SortedList,  # Sorted List
+    sortedcontainers.SortedSet,   # Sorted Set
+    selection_sort,               # Selection Sort
+    insertion_sort,               # Insertion Sort
+    bubble_sort,                  # Bubble Sort
+    quick_sort,                   # Quick Sort
+    heap_sort,                    # Heap Sort
+    shell_sort,                   # Shell Sort
+    counting_sort                 # Counting Sort
+    # Add more sorting algorithms here
+]
+
+# Define the subset sizes to test
+subset_sizes = [100, 300, 500, 700, 900]
+
+# Perform the sorting algorithm tests
+summaries = []
+
+for algorithm in algorithms:
+    print(f"Sorting Algorithm: {algorithm.__name__}")
+    print("-------------------------")
+
+    algorithm_summary = {
+        'Algorithm': algorithm.__name__,
+        'Subset Sizes': [],
+        'Original Method Accuracy': [],
+        'Random Subset Accuracy': [],
+        'Original Method Execution Time': [],
+        'Random Subset Execution Time': []
+    }
+
+    for subset_size in subset_sizes:
+        print(f"Subset Size: {subset_size}")
+
+        # Define the subset indices in shuffled order
+        subset_indices = generate_shuffled_subset_indices(dataset_size, subset_size)
+        subset = [dataset[i] for i in subset_indices]
+
+        # Measure execution time for original method
+        start_time = time()
+        original_sorted = sorted(algorithm(dataset.copy()))
+        original_time = time() - start_time
+
+        # Measure execution time for random subset method
+        start_time = time()
+        random_subset_sorted = sorted(algorithm(subset.copy()))
+        random_subset_time = time() - start_time
+
+        # Check accuracy
+        original_accuracy = np.all(original_sorted == np.sort(dataset.copy()))
+        random_subset_accuracy = np.all(random_subset_sorted == np.sort(subset.copy()))
+
+        algorithm_summary['Subset Sizes'].append(subset_size)
+        algorithm_summary['Original Method Accuracy'].append(original_accuracy)
+        algorithm_summary['Random Subset Accuracy'].append(random_subset_accuracy)
+        algorithm_summary['Original Method Execution Time'].append(original_time)
+        algorithm_summary['Random Subset Execution Time'].append(random_subset_time)
+
+        print(f" - Original Method Accuracy: {original_accuracy}")
+        print(f" - Random Subset Accuracy: {random_subset_accuracy}")
+        print(f" - Original Method Execution Time: {original_time} seconds")
+        print(f" - Random Subset Execution Time: {random_subset_time} seconds")
+        print()
+
+    summaries.append(algorithm_summary)
+
+# Print the summaries
+for summary in summaries:
+    print(f"Algorithm: {summary['Algorithm']}")
+    print("-------------------------")
+    for i in range(len(summary['Subset Sizes'])):
+        subset_size = summary['Subset Sizes'][i]
+        original_accuracy = summary['Original Method Accuracy'][i]
+        random_subset_accuracy = summary['Random Subset Accuracy'][i]
+        original_time = summary['Original Method Execution Time'][i]
+        random_subset_time = summary['Random Subset Execution Time'][i]
+
+        print(f"Subset Size: {subset_size}")
+        print(f" - Original Method Accuracy: {original_accuracy}")
+        print(f" - Random Subset Accuracy: {random_subset_accuracy}")
+        print(f" - Original Method Execution Time: {original_time} seconds")
+        print(f" - Random Subset Execution Time: {random_subset_time} seconds")
+        print()
+
+    print("-------------------------")
