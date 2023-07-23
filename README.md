@@ -9,7 +9,9 @@ This is just a prototype  (proof of concept)
 
 I bet experts out there could speed it up 1000x faster.
 
+one other important thing to note is that it can be used in conjunction with at least a zdozen other sorting algorithms besides radix sort. Also space complexity can be reduced by using data steuctures fiund in darabases and things like linked lists. Too many to list at the moment.
 
+Earlier prototype ( other file than bag of marbles python script tested it with about 10 other sorting algorithms.) To upload a while later today.
 
 Title: A Novel Hybrid Sorting Method Utilizing Random Sampling and Radix Sorting
 
