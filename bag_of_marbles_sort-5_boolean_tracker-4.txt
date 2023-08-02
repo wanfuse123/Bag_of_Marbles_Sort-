@@ -1,0 +1,70 @@
+Subset Size: 2000000
+-------------------------
+  Length of Original Dataset: 30000000
+  Checksum of Original Dataset: 976203889 (length 9)
+  Time to process original dataset: 13.562858 seconds
+  Length of Recreated Dataset: 30000000
+  Checksum of Recreated Dataset: 986830322 (length 9)
+  Time to calculate statistics: 0.873156 seconds
+  Time to recreate dataset: 0.472061 seconds
+  Total time for subset: 10.975340 seconds
+
+  Same values: 29999536
+  Same position: 17549220
+  Duplicated values: 29773466
+  Different values: 464
+  Left out values: 0
+
+Subset Size: 200000
+-------------------------
+  Length of Original Dataset: 30000000
+  Checksum of Original Dataset: 976203889 (length 9)
+  Time to process original dataset: 13.562858 seconds
+  Length of Recreated Dataset: 30000000
+  Checksum of Recreated Dataset: 976407549 (length 9)
+  Time to calculate statistics: 0.092155 seconds
+  Time to recreate dataset: 0.470878 seconds
+  Total time for subset: 11.338314 seconds
+
+  Same values: 29999552
+  Same position: 23217168
+  Duplicated values: 29779129
+  Different values: 448
+  Left out values: 0
+
+Subset Size: 100000
+-------------------------
+  Length of Original Dataset: 30000000
+  Checksum of Original Dataset: 976203889 (length 9)
+  Time to process original dataset: 13.562858 seconds
+  Length of Recreated Dataset: 30000000
+  Checksum of Recreated Dataset: 986473773 (length 9)
+  Time to calculate statistics: 0.032202 seconds
+  Time to recreate dataset: 0.473933 seconds
+  Total time for subset: 11.446054 seconds
+
+  Same values: 29999548
+  Same position: 14947121
+  Duplicated values: 29779921
+  Different values: 452
+  Left out values: 0
+
+Subset Size: 25000
+-------------------------
+  Length of Original Dataset: 30000000
+  Checksum of Original Dataset: 976203889 (length 9)
+  Time to process original dataset: 13.562858 seconds
+  Length of Recreated Dataset: 30000000
+  Checksum of Recreated Dataset: 984468694 (length 9)
+  Time to calculate statistics: 0.002777 seconds
+  Time to recreate dataset: 0.473373 seconds
+  Total time for subset: 11.408498 seconds
+
+  Same values: 29999548
+  Same position: 16111628
+  Duplicated values: 29775900
+  Different values: 452
+  Left out values: 0
+
+  Difference in mean: 0.27549350000026607
+  Difference in standard deviation: 0.26979760574795364
